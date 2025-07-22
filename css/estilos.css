@@ -870,7 +870,7 @@ background-color: #041536;  }
     align-items: center;
   }
   .nav__logo-img {
-    width: 250px;         /* tamaño menor en móvil */
+    width: 200px;         /* tamaño menor en móvil */
   }
 
   /* -- 3. PANEL LATERAL QUE CUBRE (drawer) -- */
