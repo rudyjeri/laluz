@@ -338,7 +338,8 @@ html {
     position: relative;
      margin-left: calc(-50vw + 50%); /* Esto anula el centrado de container */
     max-width: none; /* Para quitar el límite de 800px que tienes más arriba */
-    height: 70vh; /* Ocupa toda la pantalla */
+    height: 400px;
+ /* Ocupa toda la pantalla */
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), 
  url('../images/ChatGPT\ Image\ 12\ jun\ 2025\,\ 05_28_45\ p.m..png');
     background-size: cover;
@@ -354,6 +355,7 @@ html {
     width: 100vw;
  
 }
+
 
 .boton-descarga:hover {
   background-color: #005fa3;
