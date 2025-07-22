@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Recursos- La luz de la verdad</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+
+    <meta name="theme-color" content="#2091F9">
+       
+</head>
+
+<body>
+
+  <header class="hero hero-recursos"> 
+    <nav class="nav container">
+      <div class="nav__logo">
+        <a href="index.html">
+          <img src="./images/la-luz-de-la-verdad-high-resolution-logo-transparent (21).png" alt="La Luz de la Verdad" class="nav__logo-img">
+        </a>
+      </div>
+  
+          <!-- MENÚ HAMBURGUESA -->
+          <div class="nav__menu" id="navToggle">
+            <span style="font-size: 30px; color: #0d1d3e;">☰</span>
+          </div>
+      
+          <!-- ENLACES DE NAVEGACIÓN -->
+          <ul class="nav__link nav__link--menu" id="navMenu">
+            <li class="nav__items">
+              <a href="index.html" class="nav__links">Inicio</a>
+            </li>
+      
+          <!-- Menú desplegable: Fe y Ciencia -->
+          <li class="nav__items nav__dropdown">
+            <a href="fe_y_ciencia.html" class="nav__links">Fe y Ciencia ▾</a>
+            <ul class="nav__submenu">
+              <li><a href="creacion_fe_y_ciencia.html" class="nav__links">¿Creación o Evolución?</a></li>
+              <li><a href="evidencias_diluvio.html" class="nav__links">Evidencias del Diluvio</a></li>
+              <li><a href="biblia_dinosaurios.html" class="nav__links">La Biblia y los Dinosaurios</a></li>
+              <li><a href="historicidad_biblia.html" class="nav__links">La Historicidad de la Biblia</a></li>
+            </ul>
+          </li>
+    
+          <!-- Menú desplegable: Doctrinas -->
+          <li class="nav__items nav__dropdown">
+            <a href="doctrinas.html" class="nav__links">Doctrinas ▾</a>
+            <ul class="nav__submenu">
+              <li><a href="justificacion_fe.html" class="nav__links">Justificación por la Fe</a></li>
+              <li><a href="deidad.html" class="nav__links">La Deidad</a></li>
+              <li><a href="ley_de_dios.html" class="nav__links">La Ley de Dios</a></li>
+              <li><a href="estado_muertos.html" class="nav__links">El Estado de los Muertos</a></li>
+              <li><a href="santuario.html" class="nav__links">El Santuario</a></li>
+              <li><a href="reforma_prosalud.html" class="nav__links">Reforma Prosalud</a></li>
+              <li><a href="espiritu_profecia.html" class="nav__links">El Espíritu de Profecía</a></li>
+            </ul>
+          </li>
+    
+          <!-- Menú desplegable: Profecías -->
+          <li class="nav__items nav__dropdown">
+            <a href="profecias.html" class="nav__links">Profecías ▾</a>
+            <ul class="nav__submenu">
+              <li><a href="profecias_daniel.html" class="nav__links">Profecías de Daniel</a></li>
+              <li><a href="profecias_apocalipsis.html" class="nav__links">Profecías del Apocalipsis</a></li>
+              <li><a href="eventos_finales.html" class="nav__links">Los Eventos Finales</a></li>
+            </ul>
+          </li>
+    <!-- Recursos -->
+            <li class="nav__items">
+              <a href="recursos.html" class="nav__links">Recursos</a>
+            </li>
+      
+            <!-- BOTÓN DE CIERRE -->
+            <img src="./images/close.svg" class="nav__close" id="navClose" alt="Cerrar menú">
+          </ul>
+        </nav>
+
+    
+
+    <section class="hero__container_recursos">
+        <h1 class="hero__title">Recursos</h1>
+        <p class="hero__paragraph"> Descarga recursos gratis</p>
+    </section>
+</header>
+
+    <main>
+        <section class="container about">
+            <h2 class="subtitle"></h2>
+            <p class="about__paragraph">Aqui podras encontrar diferentes recursos co</p>
+        </section>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".contenedor-carrusel").forEach((carrusel) => {
+      const track = carrusel.querySelector(".slider-track");
+      const leftArrow = carrusel.querySelector(".arrow.left");
+      const rightArrow = carrusel.querySelector(".arrow.right");
+      const recursos = Array.from(carrusel.querySelectorAll(".recurso"));
+
+      let currentIndex = 0;
+
+      // Función para obtener valores dinámicos
+      const recalc = () => {
+        const itemWidth = recursos[0].offsetWidth + 24; // ancho + margen
+        const containerWidth = carrusel.querySelector(".slider-container").offsetWidth;
+        const maxVisibleItems = Math.floor(containerWidth / itemWidth);
+        return { itemWidth, maxVisibleItems };
+      };
+
+      const updateSlider = () => {
+        const { itemWidth } = recalc();
+        const offset = currentIndex * itemWidth;
+        track.style.transform = `translateX(-${offset}px)`;
+        track.style.transition = "transform 0.3s ease";
+      };
+
+      const moveRight = () => {
+        const { itemWidth, maxVisibleItems } = recalc();
+        const totalItems = recursos.length;
+        if (currentIndex < totalItems - maxVisibleItems) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
+        updateSlider();
+      };
+
+      const moveLeft = () => {
+        const { itemWidth, maxVisibleItems } = recalc();
+        const totalItems = recursos.length;
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = totalItems - maxVisibleItems;
+        }
+        updateSlider();
+      };
+
+      rightArrow.addEventListener("click", moveRight);
+      leftArrow.addEventListener("click", moveLeft);
+
+      // Swipe táctil
+      let startX = null;
+      track.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      });
+
+      track.addEventListener("touchend", (e) => {
+        if (startX === null) return;
+        const endX = e.changedTouches[0].clientX;
+        const delta = startX - endX;
+        const { maxVisibleItems } = recalc();
+        if (delta > 50) {
+          moveRight();
+        } else if (delta < -50) {
+          moveLeft();
+        }
+        startX = null;
+      });
+
+      // Recalcular al rotar o cambiar tamaño
+      window.addEventListener("resize", () => {
+        const { maxVisibleItems } = recalc();
+        // Asegurarse que currentIndex sigue válido
+        const totalItems = recursos.length;
+        if (currentIndex > totalItems - maxVisibleItems) {
+          currentIndex = Math.max(0, totalItems - maxVisibleItems);
+        }
+        updateSlider();
+      });
+    });
+  });
+</script>
+
+
+
+
+<main>
+  <!-- Carrusel 1 -->
+<div class="contenedor-carrusel" id="carrusel1">
+  <section class="slider-recursos">
+    <h2 class="titulo-recursos">📚 Estudios en PowerPoint</h2>
+
+    <div class="slider-wrapper">
+      <button class="arrow left">&#10094;</button>
+
+      <div class="slider-container">
+        <div class="slider-track">
+
+          <!-- Recurso 1 -->
+          <div class="recurso">
+            <img src="images/1888-conference.jpg" alt="Manuales de Estudio">
+            <h3>Manuales de Estudio</h3>
+            <p>Profecía Bíblica clara y ordenada.</p>
+            <a href="docs/recurso1.pdf" class="boton-descarga" download>📄 Descargar</a>
+          </div>
+
+          <!-- Recurso 2 -->
+          <div class="recurso">
+            <img src="images/0_dieta-vegetariana.webp" alt="Vindicación de Dios">
+            <h3>La Vindicación de Dios</h3>
+            <p>Estudios sobre la última generación.</p>
+            <a href="docs/recurso2.zip" class="boton-descarga" download>📦 Descargar</a>
+          </div>
+
+          <!-- Recurso 3 -->
+          <div class="recurso">
+            <img src="images/13dinosaur-superJumbo.jpg" alt="Fósiles y Fe">
+            <h3>Fe y Ciencia</h3>
+            <p>F¿Qué fue lo que no entendieron desde que Noé entró en el arca hasta que empezó 
+
+                a llover? No entendieron que estaban perdidos.¿Qué fue lo que no entendieron 
+                desde que Noé entró en el arca hasta que empezó a llover? No entendieron que 
+                estaban perdidos...</p>
+            <a href="recursos/idolatria.pptx" class="boton-descarga" download>📦 Descargar</a>
+          </div>
+      <!-- Recurso 2 -->
+          <div class="recurso">
+            <img src="images/Mockup de app preuniversitaria.png" alt="Vindicación de Dios">
+            <h3>La Naturaleza Humana De Jesús</h3>
+            <p>E¿Qué fue lo que no entendieron desde que Noé entró en el arca hasta que empezó 
+
+                a llover? No entendieron que estaban perdidos.¿Qué fue lo que no entendieron 
+                desde que Noé entró en el arca hasta que empezó a llover? No entendieron que 
+                estaban perdidos...</p>
+            <a href="docs/recurso2.zip" class="boton-descarga" download>📦 Descargar</a>
+          </div>
+      <!-- Recurso 2 -->
+          <div class="recurso">
+            <img src="images/0_dieta-vegetariana.webp" alt="Vindicación de Dios">
+            <h3>La Vindicación de Dios</h3>
+            <p>Estudios sobre la última generación.</p>
+            <a href="docs/recurso2.zip" class="boton-descarga" download>📦 Descargar</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="arrow right">&#10095;</button>
+    </div>
+  </section>
+</div>
+
+  <!-- Carrusel 2 -->
+  <div class="contenedor-carrusel" id="carrusel2">
+    <section class="slider-recursos">
+      <h2 class="titulo-recursos">Libros 1888 </h2>
+      <div class="slider-wrapper">
+        <button class="arrow left">&#10094;</button>
+        <div class="slider-container">
+          <div class="slider-track">
+            <div class="recurso">
+              <img src="img/recurso3.png" alt="Recurso 3">
+              <h3>Documento DOCX</h3>
+              <p>Guía en formato editable.</p>
+              <a href="recursos/idolatria.pptx" class="boton-descarga" download>📝 Descargar</a>
+            </div>
+             <div class="recurso">
+              <img src="images/13dinosaur-superJumbo.jpg" alt="Recurso 3">
+              <h3>Documento DOCX</h3>
+              <p>¿Qué fue lo que no entendieron desde que Noé entró en el arca hasta que empezó 
+
+                a llover? No entendieron que estaban perdidos.¿Qué fue lo que no entendieron 
+                desde que Noé entró en el arca hasta que empezó a llover? No entendieron que 
+                estaban perdidos..</p>
+              <a href="docs/recurso3.docx" class="boton-descarga" download>📝 Descargar</a>
+            </div>
+             <div class="recurso">
+              <img src="images/13dinosaur-superJumbo.jpg" alt="Recurso 3">
+              <h3>Documento DOCX</h3>
+              <p>Guía en formato editable.</p>
+              <a href="docs/recurso3.docx" class="boton-descarga" download>📝 Descargar</a>
+            </div>
+
+            <div class="recurso">
+              <img src="images/2048px-palais_de_la_decouverte_tyrannosaurus_rex_p1050042.webp" alt="Recurso 4">
+              <h3>Más Estudios</h3>
+              <p>Contenido complementario.</p>
+              <a href="docs/recurso4.zip" class="boton-descarga" download>📦 Descargar</a>
+            </div>
+          </div>
+        </div>
+        <button class="arrow right">&#10095;</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Carrusel 2 -->
+  <div class="contenedor-carrusel" id="carrusel3">
+    <section class="slider-recursos">
+      <h2 class="titulo-recursos">Recursos Editables</h2>
+      <div class="slider-wrapper">
+        <button class="arrow left">&#10094;</button>
+        <div class="slider-container">
+          <div class="slider-track">
+            <div class="recurso">
+              <img src="img/recurso3.png" alt="Recurso 3">
+              <h3>Documento DOCX</h3>
+              <p>Guía en formato editable.</p>
+              <a href="recursos/idolatria.pptx" class="boton-descarga" download>📝 Descargar</a>
+            </div>
+             <div class="recurso">
+              <img src="img/recurso3.png" alt="Recurso 3">
+              <h3>Documento DOCX</h3>
+              <p>Guía en formato editable.</p>
+              <a href="docs/recurso3.docx" class="boton-descarga" download>📝 Descargar</a>
+            </div>
+            <div class="recurso">
+              <img src="images/2048px-palais_de_la_decouverte_tyrannosaurus_rex_p1050042.webp" alt="Recurso 4">
+              <h3>Más Estudios</h3>
+              <p>Contenido complementario.</p>
+              <a href="docs/recurso4.zip" class="boton-descarga" download>📦 Descargar</a>
+            </div>
+          </div>
+        </div>
+        <button class="arrow right">&#10095;</button>
+      </div>
+    </section>
+  </div>
+</main>
+<style>
+/* Carrusel container */
+.contenedor-carrusel {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #fdf6e3, #fff8dc);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Título */
+.titulo-recursos {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  background: linear-gradient(to right, #5d5e61, #ff9d00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* Estructura del carrusel */
+.slider-recursos {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-wrapper {
+  position: relative;
+}
+
+.slider-container {
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 24px;
+  padding-bottom: 10px;
+}
+
+/* Tarjeta */
+.recurso {
+  min-width: 400px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.recurso:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen */
+.recurso img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+/* Título y texto */
+.recurso h3 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.recurso p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* Botón */
+.boton-descarga {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #050c3e;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.boton-descarga:hover {
+  background-color: #f39c12;
+  color: #000;
+}
+
+/* Flechas */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 100;
+}
+
+.arrow:hover {
+  background-color: #f1c40f;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .recurso {
+    min-width: 80%;
+  }
+
+  .titulo-recursos {
+    font-size: 2rem;
+  }
+
+  .arrow {
+    font-size: 1.8rem;
+  }
+}
+
+.separador-blanco {
+  height: 50px;
+  background-color: #fff;
+  margin-top: 60px;
+}
+
+/* Separador blanco */
+.separador-blanco {
+  height: 50px;
+  background-color: #fff;
+  margin: 40px 0;
+}
+
+</style>
+
+    </main>
+
+ <div id="footer-placeholder"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const heroTitle = document.querySelector(".hero__container_recursos .hero__title");
+      const heroParagraph = document.querySelector(".hero__container_recursos .hero__paragraph");
+    
+      heroTitle.classList.add("active");
+      heroParagraph.classList.add("active");
+    });
+  
+        
+    </script>
+
+  <script src="include.js"></script>
+  <script src="./js/slider.js"></script>
+  <script src="./js/questions.js"></script>
+  <script src="./js/menu.js"></script>
+
+</body>
+
+</html>

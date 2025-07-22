@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Profecias - La luz de la verdad</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <meta name="theme-color" content="#2091F9">
+
+</head>
+
+<body>
+
+    <header class="hero hero-profecias"> 
+      <div id="nav-placeholder"></div>
+
+<script>
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+</script>
+
+        <section class="hero__container_profecias">
+            <h1 class="hero__title">El Futuro Revelado</h1>
+            <p class="hero__paragraph"> Tenemos también la palabra profética más segura,
+              a la cual hacéis bien en estar atentos como a una antorcha que alumbra en
+               lugar oscuro..2 Pedro 1:19 </p>
+        </section>
+    </header>
+
+    <main>
+
+
+    </section>
+        <section class="container about">
+            <h2 class="subtitle"></h2>
+            <p class="about__paragraph"> 
+
+                Exploraremos las profecías más significativas de la Biblia, 
+                desde las anunciadas en el Antiguo Testamento hasta las que apuntan al regreso
+                de Jesucristo. Descubriremos cómo estas predicciones no solo se han cumplido 
+                con precisión, sino que también nos ofrecen esperanza y dirección para el 
+                presente y el futuro.
+                
+              </p>
+
+        </section>
+                <section id="topics-section3">
+                    <div class="container">
+                      <h2 class="topics__title">Temas</h2>
+                      <div class="topics__grid">
+                        <div class="topic-card">
+                          <a href="daniel - Profecias .html">
+                            <img src="./images/Sueño-Nabucodonosor-Daniel.jpg" alt="Genetics" class="topic-card__image">
+                            <div class="topic-card__overlay">
+                              <h3 class="topic-card__title">Daniel</h3>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="topic-card">
+                          <a href="apocalipsis -Profecias.html">
+                            <img src="./images/quien-es-la-bestia_825_460_80_c1.jpg" alt="Noah's Ark" class="topic-card__image">
+                            <div class="topic-card__overlay">
+                              <h3 class="topic-card__title">Apocalipsis</h3>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="topic-card">
+                          <a href="dinosaurios.html">
+                            <img src="./images/infobae3 (1).png" alt="Creation Relevance" class="topic-card__image">
+                            <div class="topic-card__overlay">
+                              <h3 class="topic-card__title">Eventos Finales</h3>
+                            </div>
+                          </a>
+                    </div>
+                  </section>
+      
+    </main>
+
+   <!-- Footer -->
+
+ <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script>
+     document.addEventListener("DOMContentLoaded", () => {
+  const heroTitle = document.querySelector(".hero__container_profecias .hero__title");
+  const heroParagraph = document.querySelector(".hero__container_profecias .hero__paragraph");
+
+  heroTitle.classList.add("active");
+  heroParagraph.classList.add("active");
+});
+
+  </script>
+
+  <script src="include.js"></script>
+  <script src="./js/slider.js"></script>
+  <script src="./js/questions.js"></script>
+  <script src="./js/menu.js"></script>
+
+</body>
+
+</html>

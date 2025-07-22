@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio - La luz de la verdad</title>
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <meta name="theme-color" content="#2091F9" />
+  <meta name="description" content="Recursos bíblicos y apologética adventista. Profundiza en las Escrituras con estudios, artículos y más." />
+  <meta name="keywords" content="Biblia, Profecía, Doctrina, Adventista, Ciencia, Fe" />
+  <meta name="author" content="La Luz de la Verdad" />
+</head>
+
+<body>
+<header class="hero hero-feyciencia">
+  <div id="nav-placeholder"></div>
+
+<script>
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+</script>
+
+
+  <!-- Encabezado principal -->
+  <section class="hero__container_feyciencia">
+    <h1 class="hero__title">Fe y Ciencia</h1>
+    <p class="hero__paragraph">Los cielos cuentan la gloria de Dios, Y el firmamento anuncia la obra de sus manos... Salmos 19:1</p>
+  </section>
+</header>
+    <main>
+  
+      <section class="container about">
+        <h2 class="subtitle"> </h2>
+        <p class="about__paragraph">
+          
+          Desde las vastas galaxias hasta el diseño perfecto de una célula, 
+              cada rincón del universo susurra el nombre de su Autor. En esta sección, emprendemos un 
+              viaje donde la fe se encuentra con la razón, y la ciencia revela las huellas del Dios eterno.
+              No caminamos por caminos de suposiciones humanas, sino por sendas donde la evidencia 
+              y la revelación divina convergen. La Creación, el Diluvio, los misterios de la vida y 
+              del cosmos: todo apunta a un Dios que no solo existe, sino que se manifiesta con poder 
+              y propósito.
+              
+              Aquí descubrirás que creer no es cerrar los ojos, sino abrirlos a una realidad más profunda:
+               la verdad de que la ciencia bien entendida no niega a Dios… 
+              ¡lo glorifica!  </p>
+    </section>
+
+
+    <section id="topics-section1">
+        <div class="container">
+          <h2 class="topics__title">Temas
+          </h2>
+          <div class="topics__grid">
+            <div class="topic-card">
+              <a href="creacion_fe_y_ciencia.html">
+                <img src="./images/ChatGPT Image 6 abr 2025, 09_53_02 p.m..png" alt="Genetics" class="topic-card__image">
+                <div class="topic-card__overlay">
+                  <h3 class="topic-card__title">¿Creación o Evolución?</h3>
+                </div>
+              </a>
+            </div>
+            <div class="topic-card">
+              <a href="evidencias_del_diluvio_Fe y Ciencia.html">
+                <img src="./images/antena-historia-podcast-diluvio-universal.jpg" alt="Noah's Ark" class="topic-card__image">
+                <div class="topic-card__overlay">
+                  <h3 class="topic-card__title">Evidencias del Diluvio</h3>
+                </div>
+              </a>
+            </div>
+            <div class="topic-card">
+              <a href="dinosaurios - Fe y Ciencia.html">
+                <img src="./images/f.elconfidencial.com_original_a1c_0ef_a20_a1c0efa203e3c23e63e7374c091d593c.jpg" alt="Creation Relevance" class="topic-card__image">
+                <div class="topic-card__overlay">
+                  <h3 class="topic-card__title">Dinosaurios</h3>
+                </div>
+              </a>
+            </div>
+            <div class="topic-card">
+              <a href="dinosaurs.html">
+                <img src="./images/Todavia-existe-la-Biblia-original.jpg" alt="Dinosaurs" class="topic-card__image">
+                <div class="topic-card__overlay">
+                  <h3 class="topic-card__title">Historicidad de la Biblia</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+ <div id="footer-placeholder"></div>
+
+
+  <!-- Scripts -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const heroTitle = document.querySelector(".hero__container_feyciencia .hero__title");
+  const heroParagraph = document.querySelector(".hero__container_feyciencia .hero__paragraph");
+
+  heroTitle.classList.add("active");
+  heroParagraph.classList.add("active");
+});
+
+   
+</script>
+ 
+  <script src="include.js"></script>
+  <script src="./js/slider.js"></script>
+  <script src="./js/questions.js"></script>
+  <script src="./js/menu.js"></script>
+
+</body>
+
+</html>

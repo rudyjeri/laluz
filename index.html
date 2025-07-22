@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio - La luz de la verdad</title>
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <meta name="theme-color" content="#2091F9" />
+  <meta name="description" content="Recursos bíblicos y apologética adventista. Profundiza en las Escrituras con estudios, artículos y más." />
+  <meta name="keywords" content="Biblia, Profecía, Doctrina, Adventista, Ciencia, Fe" />
+  <meta name="author" content="La Luz de la Verdad" />
+
+  <style>
+    .trending-section {
+      padding: 20px;
+      background-color: #041536;
+      max-width: 1500px;
+      margin: 40px auto;
+      overflow: hidden;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header h2,
+    .view-all {
+      color: #fcc53c;
+    }
+
+    .view-all:hover {
+      text-decoration: underline;
+    }
+
+    .carousel-container {
+      width: 100%;
+      position: relative;
+    }
+
+    .video-list {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+      gap: 20px;
+    }
+
+    .video-card {
+      width: 300px;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      flex: 0 0 auto;
+    }
+
+    .video-card:hover {
+      transform: scale(1.02);
+      z-index: 10;
+    }
+
+    .thumbnail {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-card h3 {
+      font-size: 1rem;
+      margin: 10px;
+      line-height: 1.3;
+    }
+
+    .video-card h3 a {
+      color: #000;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .video-card h3 a:hover {
+      color: #cfc9b9;
+    }
+
+    .video-card p {
+      font-size: 0.9rem;
+      margin: 0 10px 10px;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .video-card {
+        width: 250px;
+      }
+
+      .thumbnail {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero hero-inicio">
+    
+<div id="nav-placeholder"></div>
+
+<script>
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+</script>
+
+    <section class="hero__container_inicio">
+      <h1 class="hero__title">Luz en un mundo en oscuridad</h1>
+      <p class="hero__paragraph">Después de esto vi a otro ángel descender del cielo con gran poder; y la tierra fue alumbrada con su gloria. Apocalipsis 18:1</p>
+    </section>
+  </header>
+
+  <main>
+    <section class="trending-section">
+      <div class="header">
+        <h2>Artículos</h2>
+        <a href="#" class="view-all">Ver todo &raquo;</a>
+      </div>
+
+      <div class="carousel-container">
+        <div class="video-list" id="carousel">
+          <div class="video-card">
+            <div class="thumbnail">
+              <img src="images/1888-conference.jpg" alt="Conferencia 1888" />
+            </div>
+            <h3><a href="#">¿Por qué Mineápolis y 1888 son tan importantes hoy?</a></h3>
+            <p>Estudio profundo</p>
+          </div>
+          <div class="video-card">
+            <div class="thumbnail">
+              <img src="images/investigadores-cristianos-o-como-conciliar-ciencia-y-fe.jpeg" alt="Cristianos y ciencia" />
+            </div>
+            <h3><a href="#">Juicio Final - Estudio Bíblico</a></h3>
+            <p>Profecía Bíblica</p>
+          </div>
+          <div class="video-card">
+            <div class="thumbnail">
+              <img src="images/documental-biblico.jpg" alt="Documental bíblico" />
+            </div>
+            <h3><a href="#">Documental Bíblico</a></h3>
+            <p>Historia y Fe</p>
+          </div>
+          <div class="video-card">
+            <div class="thumbnail">
+              <img src="images/creacion-evolucion.jpg" alt="Creación y Evolución" />
+            </div>
+            <h3><a href="#">Creación y Evolución</a></h3>
+            <p>Fe y Ciencia</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block">
+      <div class="text">
+        <h2>¿Quiénes somos?</h2>
+        <p>El objetivo de La Luz de la Verdad es brindar recursos teológicos y de apologética a través de
+            artículos organizados por temas, facilitando así el estudio de las Sagradas Escrituras para todos
+            aquellos que deseen profundizar en los hermosos temas de la Biblia.</p>
+      </div>
+      <img src="images/pngtree-an-open-bible-sitting-in-the-field-in-the-evening-sun-picture-image_2668363.jpg" alt="Biblia abierta al atardecer" />
+    </section>
+
+    <section class="info-block">
+      <div class="text">
+        <h2>Nuestra misión</h2>
+        <p>El objetivo de La Luz de la Verdad es brindar recursos teológicos y de apologética a través de
+            artículos organizados por temas, facilitando así el estudio de las Sagradas Escrituras para todos
+            aquellos que deseen profundizar en los hermosos temas de la Biblia.</p>
+      </div>
+      <img src="images/adventistasjpeg.webp" alt="Personas compartiendo la Palabra" />
+    </section>
+
+    <section class="info-block">
+      <div class="text">
+        <h2>Nuestra visión</h2>
+        <p>Ser una fuente confiable y accesible de enseñanza bíblica y apologética, proporcionando recursos
+            que ayuden a creyentes y buscadores de la verdad a profundizar en el conocimiento de las Sagradas
+            Escrituras y compartirlas con sabiduría y convicción.</p>
+      </div>
+      <img src="images/antena-historia-podcast-diluvio-universal.jpg" alt="Antena y cielo nublado" />
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.addEventListener("load", () => {
+      const videoList = document.querySelector("#carousel");
+      const cards = document.querySelectorAll(".video-card");
+
+      if (videoList && cards.length) {
+        const totalVisible = Math.floor(videoList.offsetWidth / cards[0].offsetWidth);
+
+        for (let i = 0; i < totalVisible; i++) {
+          videoList.appendChild(cards[i].cloneNode(true));
+        }
+
+        let index = 0;
+        const cardWidth = cards[0].offsetWidth + 20;
+        let isTransitioning = false;
+
+        function slideNext() {
+          if (isTransitioning) return;
+          isTransitioning = true;
+          index++;
+
+          videoList.style.transition = "transform 0.5s ease-in-out";
+          videoList.style.transform = `translateX(-${index * cardWidth}px)`;
+
+          setTimeout(() => {
+            if (index >= cards.length) {
+              index = 0;
+              videoList.style.transition = "none";
+              videoList.style.transform = "translateX(0)";
+            }
+            isTransitioning = false;
+          }, 500);
+        }
+
+        setInterval(slideNext, 4000);
+      }
+    });
+  </script>
+
+  <script src="include.js"></script>
+  <script src="./js/slider.js"></script>
+  <script src="./js/questions.js"></script>
+  <script src="./js/menu.js"></script>
+</body>
+
+</html>

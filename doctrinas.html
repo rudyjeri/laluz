@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio - La luz de la verdad</title>
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <meta name="theme-color" content="#2091F9" />
+  <meta name="description" content="Recursos bíblicos y apologética adventista. Profundiza en las Escrituras con estudios, artículos y más." />
+  <meta name="keywords" content="Biblia, Profecía, Doctrina, Adventista, Ciencia, Fe" />
+  <meta name="author" content="La Luz de la Verdad" />
+
+</head>
+
+<body>
+
+    <header class="hero hero-apologetica">
+      <div id="nav-placeholder"></div>
+
+<script>
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+</script>
+
+
+
+        <section class="hero__container_doctrinas">
+            <h1 class="hero__title">Defendiendo la sana doctrina</h1>
+            <p class="hero__paragraph"> 
+              Enseñándoles que guarden todas las cosas que os he mandado; y he aquí yo estoy con vosotros todos 
+              los días, hasta el fin del mundo. Amén...Mateo 28:20
+        </p>
+        </section>
+    </header>
+    
+    <main>
+
+        <section class="container about">
+            <h2 class="subtitle"> </h2>
+            <p class="about__paragraph">
+               La Biblia no es solo un libro, es la voz de Dios hablándonos hoy,
+               revelándonos su amor, su justicia y su plan perfecto para la humanidad. A través de sus páginas, 
+               encontramos respuestas a las preguntas más profundas del alma y el camino seguro para una vida 
+               plena en Cristo. </p>
+        </section>
+        
+        <section id="topics-section2">
+            <div class="container">
+              <h2 class="topics__title">Temas</h2>
+              <div class="topics__grid">
+                          
+                <div class="topic-card">
+                  <a href="santuario - doctrinas.html">
+                    <img src="./images/jesus-en-la-cruz.jpg" alt="Genetics" class="topic-card__image">
+                    <div class="topic-card__overlay">
+                      <h3 class="topic-card__title">Justificacion por la fe</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="topic-card">
+                  <a href="dinosaurios.html">
+                    <img src="./images/Te-sentaras-en-Su-trono.jpg" alt="Creation Relevance" class="topic-card__image">
+                    <div class="topic-card__overlay">
+                      <h3 class="topic-card__title">La Deidad</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="topic-card">
+                  <a href="evidencias-diluvio.html">
+                    <img src="./images/dez-mandamentos.jpg" alt="Noah's Ark" class="topic-card__image">
+                    <div class="topic-card__overlay">
+                      <h3 class="topic-card__title">La Ley de Dios</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="topic-card">
+                  <a href="gospel.html">
+                    <img src="./images/istockphoto-627008872-612x612.jpg" alt="Gospel" class="topic-card__image">
+                    <div class="topic-card__overlay">
+                      <h3 class="topic-card__title">El Estado de los Muertos</h3>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="topic-card">
+                  <a href="santuario - doctrinas.html">
+                    <img src="./images/Sanctuary-cleansed (1).jpg" alt="Noah's Ark" class="topic-card__image">
+                    <div class="topic-card__overlay">
+                      <h3 class="topic-card__title">El santuario</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="topic-card">
+                  <a href="dinosaurs.html">
+                    <img src="./images/buddha-bowl-dish-with-vegetables-and-legumes-top-view.webp" alt="Dinosaurs" class="topic-card__image">
+                    <div class="topic-card__overlay">
+                      <h3 class="topic-card__title">Reforma Prosalud</h3>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="topic-card">
+                  <a href="biology.html">
+                    <img src="./images/reavivados-pelo-espirito-de-profecia.jpg" alt="Biology" class="topic-card__image">
+                    <div class="topic-card__overlay">
+                      <h3 class="topic-card__title">El Espiritu de Profecia</h3>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+    </main>
+     <!-- Footer -->
+ <div id="footer-placeholder"></div>
+
+
+  <!-- Scripts -->
+  <script>
+     document.addEventListener("DOMContentLoaded", () => {
+  const heroTitle = document.querySelector(".hero__container_doctrinas .hero__title");
+  const heroParagraph = document.querySelector(".hero__container_doctrinas .hero__paragraph");
+
+  heroTitle.classList.add("active");
+  heroParagraph.classList.add("active");
+});
+ 
+  </script>
+  <script src="include.js"></script>
+  <script src="./js/slider.js"></script>
+  <script src="./js/questions.js"></script>
+  <script src="./js/menu.js"></script>
+
+</body>
+
+</html>
