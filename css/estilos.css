@@ -859,16 +859,16 @@ background-color: #041536;  }
     min-height: 80px;     /* Garantiza una altura mínima mayor */
   }
   /* -- 2. LOGO CENTRADO Y POR DEBAJO DEL PANEL -- */
-  .nav__logo {
-    position: absolute;
-    top: 0.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;         /* por DEBAJO del panel lateral */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.nav__logo {
+  position: absolute;
+  top: 0.75rem;
+  left: 1.5rem; /* Lo coloca a 1.5rem del borde izquierdo */
+  transform: none; /* Quita el centrado */
+  z-index: 100;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
   .nav__logo-img {
     width: 200px;         /* tamaño menor en móvil */
   }
