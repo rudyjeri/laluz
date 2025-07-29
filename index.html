@@ -113,7 +113,7 @@
 </head>
 
 <body>
-  <header class="hero hero-inicio">
+  <header class="hero hero-inicio">1
     
 <div id="nav-placeholder"></div>
 
@@ -126,7 +126,7 @@
 </script>
 
     <section class="hero__container_inicio">
-      <h1 class="hero__title">Luz en un mundo en oscuridad</h1>
+      <h1 class="hero__title">Luz en un Mundo en Oscuridad</h1>
       <p class="hero__paragraph">Después de esto vi a otro ángel descender del cielo con gran poder; y la tierra fue alumbrada con su gloria. Apocalipsis 18:1</p>
     </section>
   </header>
@@ -244,6 +244,16 @@
     });
   </script>
 
+ <script>
+     document.addEventListener("DOMContentLoaded", () => {
+  const heroTitle = document.querySelector(".hero__container_inicio .hero__title");
+  const heroParagraph = document.querySelector(".hero__container_inicio .hero__paragraph");
+
+  heroTitle.classList.add("active");
+  heroParagraph.classList.add("active");
+});
+ 
+  </script>
   <script src="include.js"></script>
   <script src="./js/slider.js"></script>
   <script src="./js/questions.js"></script>

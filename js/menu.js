@@ -1,67 +1,79 @@
 (function () {
+  // Esperar hasta que el DOM completo esté disponible (incluyendo navbar.html si se carga dinámicamente)
   document.addEventListener("DOMContentLoaded", () => {
-    const navToggle = document.getElementById('navToggle');
-    const navClose = document.getElementById('navClose');
-    const navMenu = document.getElementById('navMenu');
-    const navOverlay = document.getElementById('navOverlay');
-    const navDropdowns = document.querySelectorAll('.nav__items.nav__dropdown');
+    // Espera a que el navbar esté realmente en el DOM (en caso de que se cargue con fetch)
+    const waitForNavbar = setInterval(() => {
+      const navToggle = document.getElementById('navToggle');
+      const navClose = document.getElementById('navClose');
+      const navMenu = document.getElementById('navMenu');
+      const navOverlay = document.getElementById('navOverlay');
+      const navDropdowns = document.querySelectorAll('.nav__dropdown');
 
-    // 👉 Abrir menú hamburguesa
-    navToggle?.addEventListener('click', () => {
-      navMenu?.classList.add('nav__link--show');
-      navMenu.style.visibility = 'visible';
-    });
+      if (!navToggle || !navMenu) return; // Si no están aún, sigue esperando
+      clearInterval(waitForNavbar); // Ya están cargados, detenemos la espera
 
-    // 👉 Cerrar menú
-    navClose?.addEventListener('click', () => {
-      navMenu?.classList.remove('nav__link--show');
-      setTimeout(() => {
-        navMenu.style.visibility = 'hidden';
-      }, 500);
-    });
+      // 👉 Abrir menú hamburguesa
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.add('nav__link--show');
+        navOverlay?.classList.add('nav__overlay--show');
+        navMenu.style.visibility = 'visible';
+      });
 
-    // 👉 Cerrar al hacer clic fuera
-    navOverlay?.addEventListener('click', () => {
-      navMenu?.classList.remove('nav__link--show');
-      navOverlay?.classList.remove('nav__overlay--show');
-      setTimeout(() => {
-        navMenu.style.visibility = 'hidden';
-      }, 500);
-    });
-
-    // 👉 Submenús en móvil (abre al primer toque, navega al segundo)
-navDropdowns.forEach(item => {
-  const toggleLink = item.querySelector('.nav__links');
-  const submenu = item.querySelector('.nav__submenu');
-
-  toggleLink?.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768) {
-      const isActive = item.classList.contains('active');
-
-      // Si el submenú NO está abierto, lo abrimos y prevenimos navegación
-      if (!isActive) {
-        e.preventDefault();
-        navDropdowns.forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
+      // 👉 Función para cerrar
+      function closeMenu() {
+        navMenu.classList.remove('nav__link--show');
+        navOverlay?.classList.remove('nav__overlay--show');
+        setTimeout(() => {
+          navMenu.style.visibility = 'hidden';
+        }, 300);
       }
-      // Si YA está abierto y el usuario hace clic de nuevo, permitimos navegar
-      // No se usa preventDefault esta vez
-    }
-    
+
+      // 👉 Cerrar desde botón o fondo
+      navClose?.addEventListener('click', closeMenu);
+      navOverlay?.addEventListener('click', closeMenu);
+
+      // 👉 Submenús responsive
+      navDropdowns.forEach(item => {
+        const toggleLink = item.querySelector('.nav__link');
+        toggleLink?.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            const isActive = item.classList.contains('active');
+            if (!isActive) {
+              e.preventDefault(); // Prevenir navegación
+              navDropdowns.forEach(i => i.classList.remove('active'));
+              item.classList.add('active');
+            }
+          }
+        });
+      });
+    }, 100); // Verifica cada 100ms
+
+
+  const searchToggle = document.getElementById('searchToggle');
+  const searchBox = document.getElementById('searchBox');
+  const searchClose = document.getElementById('searchClose');
+
+  searchToggle.addEventListener('click', () => {
+    searchBox.classList.add('active');
   });
-});
+
+  searchClose.addEventListener('click', () => {
+    searchBox.classList.remove('active');
+  });
 
 
-    // 👉 Hero animación (si aplica)
-    const hero = document.querySelector(".hero__container");
+
+
+    // 👉 Hero animaciones
+    const hero = document.querySelector(".hero__container, .hero__container_inicio, .hero__container_feyciencia");
     hero?.classList.add("active");
 
-    const heroTitle = document.querySelector(".hero__container_inicio .hero__title");
-    const heroParagraph = document.querySelector(".hero__container_inicio .hero__paragraph");
+    const heroTitle = document.querySelector(".hero__title");
+    const heroParagraph = document.querySelector(".hero__paragraph");
     heroTitle?.classList.add("active");
     heroParagraph?.classList.add("active");
 
-    // 👉 Animación al hacer scroll
+    // 👉 Mostrar imágenes al hacer scroll
     const imageLinks = document.querySelectorAll(".image-link");
     function showOnScroll() {
       imageLinks.forEach(link => {
@@ -78,7 +90,5 @@ navDropdowns.forEach(item => {
         alert("✅ Tu descarga está comenzando...");
       });
     });
-
-   
   });
 })();

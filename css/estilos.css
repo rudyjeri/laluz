@@ -5,19 +5,27 @@
     --padding-container: 20px;
     --color-title: #2a4ce1;
 }
+* {
+  box-sizing: border-box;
+}
+html{
+  width: 100%;
+  overflow-x: hidden;  /* ✅ evita que se desborde horizontalmente */
+}
 
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4; 
     height: 100%;
   margin: 0;
-
+  overflow-x: hidden;
 }
+
 .hero__container_inicio {
    position: relative;
      margin-left: calc(-50vw + 50%); /* Esto anula el centrado de container */
     max-width: none; /* Para quitar el límite de 800px que tienes más arriba */
-    height: 80vh; /* Ocupa toda la pantalla */
+    height: 100vh; /* Ocupa toda la pantalla */
     background-image: url('../images/ChatGPT\ Image\ 13\ jul\ 2025\,\ 10_04_53\ p.m..png'); /* Reemplaza con tu imagen */
     background-size: cover;
     background-position: center;
@@ -333,6 +341,15 @@ html {
   }
 }
 
+/* ==== OCULTAR EN RESPONSIVE ==== */
+
+@media screen and (max-width: 768px) {
+  .nav__search-item,
+  .nav__search-box {
+    display: none !important;
+  }
+}
+
   
 .hero__container_feyciencia {
     position: relative;
@@ -355,7 +372,6 @@ html {
     width: 100vw;
  
 }
-
 
 .boton-descarga:hover {
   background-color: #005fa3;
@@ -624,7 +640,7 @@ background-color: #041536;  }
     position: relative;
     margin-left: calc(-50vw + 50%); /* Esto anula el centrado de container */
     max-width: none; /* Para quitar el límite de 800px que tienes más arriba */
-    height: 500px;
+    height: 400px;
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), 
     url('../images/f');
     background-size: cover;
@@ -634,7 +650,6 @@ background-color: #041536;  }
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     color: #ffffff;
     text-align: center;
     padding: 0 20px;
@@ -856,22 +871,22 @@ background-color: #041536;  }
   }
   .nav {
     padding: 2rem 1.5rem; /* Aumenta padding vertical */
-    min-height: 80px;     /* Garantiza una altura mínima mayor */
+    min-height: 70px;     /* Garantiza una altura mínima mayor */
   }
   /* -- 2. LOGO CENTRADO Y POR DEBAJO DEL PANEL -- */
-.nav__logo {
-  position: absolute;
-  top: 0.75rem;
-  left: 1.5rem; /* Lo coloca a 1.5rem del borde izquierdo */
-  transform: none; /* Quita el centrado */
-  z-index: 100;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-   .nav__logo-img {
+  .nav__logo {
+    position: absolute;
+    top: 0.75rem;
+  left: 35%;
+    transform: translateX(-50%);
+    z-index: 100;         /* por DEBAJO del panel lateral */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav__logo-img {
   width: 100%;
-  max-width: 220px;  /* Ajusta a lo que necesites */
+  max-width: 270px;  /* Ajusta a lo que necesites */
   height: auto;
 }
 
@@ -882,7 +897,7 @@ background-color: #041536;  }
     left: 0;
     width: 75vw;
     height: 100vh;
-    background-color: #dbaf44;
+    background-color: #eab121;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -937,13 +952,15 @@ background-color: #041536;  }
     padding-left: 1.5rem;
     display: none;
     flex-direction: column;
+
   }
   .nav__items.active > .nav__submenu {
     display: flex;
   }
   .nav__submenu a {
     color: #454242;
-    font-size: 1.05rem;
+    font-size: 1.05rem;    
+
   }
   .nav__submenu a:hover {
     background: none;
@@ -951,6 +968,7 @@ background-color: #041536;  }
   }
   
 }
+
 
 
 /* Estilos generales de los articulos */
@@ -1321,11 +1339,12 @@ background-color: #041536;  }
     padding: 0 20px;
   }
 
-  .footer__form {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
+ .footer__form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
+
 
   .footer__input,
   .footer__submit {
@@ -1335,7 +1354,17 @@ background-color: #041536;  }
     padding: 10px;
     border-radius: 12px;
   }
+.footer__nav-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* 🔽 Espacio reducido entre enlaces */
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
 
+}
   .footer__input::placeholder {
     font-size: 1rem;
   }
@@ -1346,11 +1375,13 @@ background-color: #041536;  }
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
   .footer__logo {
-    max-width: 260px;
+    max-width: 150px;
     height: auto;
     margin: 0 auto;
 
   }
+ 
+
   .footer__submit:hover {
     background: #d99608;
     transform: scale(1.03);
@@ -1368,8 +1399,9 @@ background-color: #041536;  }
     width: 100%;
     margin-bottom: 20px;
   } 
-  .footer__text {
-    font-size: 1rem;
-    margin-bottom: 28px;
-  }
+.footer__text {
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  color: #ccc; /* o el color que estés usando */
+}
 }
