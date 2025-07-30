@@ -14,6 +14,68 @@
   <meta name="keywords" content="Biblia, Profecía, Doctrina, Adventista, Ciencia, Fe" />
   <meta name="author" content="La Luz de la Verdad" />
 
+
+</head>
+
+<body>
+  <header class="hero hero-inicio">
+    
+<div id="nav-placeholder"></div>
+
+<script>
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+</script>
+
+    <section class="hero__container_inicio">
+      <h1 class="hero__title">Luz en un Mundo en Oscuridad</h1>
+      <p class="hero__paragraph">Después de esto vi a otro ángel descender del cielo con gran poder; y la tierra fue alumbrada con su gloria. Apocalipsis 18:1</p>
+    </section>
+  </header>
+
+  <main>
+    <section class="trending-section">
+      <div class="header">
+        <h2>Artículos</h2>
+        <a href="#" class="view-all">Ver todo &raquo;</a>
+      </div>
+
+      <div class="carousel-container">
+        <div class="video-list" id="carousel">
+          <div class="video-card">
+            <div class="thumbnail">
+              <img src="images/1888-conference.jpg" alt="Conferencia 1888" />
+            </div>
+            <h3><a href="#">¿Por qué Mineápolis y 1888 son tan importantes hoy?</a></h3>
+            <p>Estudio profundo</p>
+          </div>
+          <div class="video-card">
+            <div class="thumbnail">
+              <img src="images/investigadores-cristianos-o-como-conciliar-ciencia-y-fe.jpeg" alt="Cristianos y ciencia" />
+            </div>
+            <h3><a href="#">Juicio Final - Estudio Bíblico</a></h3>
+            <p>Profecía Bíblica</p>
+          </div>
+          <div class="video-card">
+            <div class="thumbnail">
+              <img src="images/documental-biblico.jpg" alt="Documental bíblico" />
+            </div>
+            <h3><a href="#">Documental Bíblico</a></h3>
+            <p>Historia y Fe</p>
+          </div>
+          <div class="video-card">
+            <div class="thumbnail">
+              <img src="images/creacion-evolucion.jpg" alt="Creación y Evolución" />
+            </div>
+            <h3><a href="#">Creación y Evolución</a></h3>
+            <p>Fe y Ciencia</p>
+          </div>
+        </div>
+      </div>
+    </section>
   <style>
     .trending-section {
       padding: 20px;
@@ -110,68 +172,6 @@
       }
     }
   </style>
-</head>
-
-<body>
-  <header class="hero hero-inicio">1
-    
-<div id="nav-placeholder"></div>
-
-<script>
-  fetch("navbar.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("nav-placeholder").innerHTML = data;
-    });
-</script>
-
-    <section class="hero__container_inicio">
-      <h1 class="hero__title">Luz en un Mundo en Oscuridad</h1>
-      <p class="hero__paragraph">Después de esto vi a otro ángel descender del cielo con gran poder; y la tierra fue alumbrada con su gloria. Apocalipsis 18:1</p>
-    </section>
-  </header>
-
-  <main>
-    <section class="trending-section">
-      <div class="header">
-        <h2>Artículos</h2>
-        <a href="#" class="view-all">Ver todo &raquo;</a>
-      </div>
-
-      <div class="carousel-container">
-        <div class="video-list" id="carousel">
-          <div class="video-card">
-            <div class="thumbnail">
-              <img src="images/1888-conference.jpg" alt="Conferencia 1888" />
-            </div>
-            <h3><a href="#">¿Por qué Mineápolis y 1888 son tan importantes hoy?</a></h3>
-            <p>Estudio profundo</p>
-          </div>
-          <div class="video-card">
-            <div class="thumbnail">
-              <img src="images/investigadores-cristianos-o-como-conciliar-ciencia-y-fe.jpeg" alt="Cristianos y ciencia" />
-            </div>
-            <h3><a href="#">Juicio Final - Estudio Bíblico</a></h3>
-            <p>Profecía Bíblica</p>
-          </div>
-          <div class="video-card">
-            <div class="thumbnail">
-              <img src="images/documental-biblico.jpg" alt="Documental bíblico" />
-            </div>
-            <h3><a href="#">Documental Bíblico</a></h3>
-            <p>Historia y Fe</p>
-          </div>
-          <div class="video-card">
-            <div class="thumbnail">
-              <img src="images/creacion-evolucion.jpg" alt="Creación y Evolución" />
-            </div>
-            <h3><a href="#">Creación y Evolución</a></h3>
-            <p>Fe y Ciencia</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="info-block">
       <div class="text">
         <h2>¿Quiénes somos?</h2>
