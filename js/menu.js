@@ -38,11 +38,15 @@
         toggleLink?.addEventListener('click', (e) => {
           if (window.innerWidth <= 768) {
             const isActive = item.classList.contains('active');
-            if (!isActive) {
-              e.preventDefault(); // Prevenir navegación
-              navDropdowns.forEach(i => i.classList.remove('active'));
-              item.classList.add('active');
-            }
+          if (!isActive) {
+  e.preventDefault(); // Primer clic: abrir submenú
+  navDropdowns.forEach(i => i.classList.remove('active'));
+  item.classList.add('active');
+} else {
+  // Segundo clic: dejar que el enlace navegue normalmente
+  item.classList.remove('active'); // Opcional: cerrar después de navegar
+}
+
           }
         });
       });
@@ -60,18 +64,6 @@
   searchClose.addEventListener('click', () => {
     searchBox.classList.remove('active');
   });
-
-
-
-
-    // 👉 Hero animaciones
-    const hero = document.querySelector(".hero__container, .hero__container_inicio, .hero__container_feyciencia");
-    hero?.classList.add("active");
-
-    const heroTitle = document.querySelector(".hero__title");
-    const heroParagraph = document.querySelector(".hero__paragraph");
-    heroTitle?.classList.add("active");
-    heroParagraph?.classList.add("active");
 
     // 👉 Mostrar imágenes al hacer scroll
     const imageLinks = document.querySelectorAll(".image-link");
