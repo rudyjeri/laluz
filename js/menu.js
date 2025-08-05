@@ -32,24 +32,29 @@
       navClose?.addEventListener('click', closeMenu);
       navOverlay?.addEventListener('click', closeMenu);
 
-      // 👉 Submenús responsive
-      navDropdowns.forEach(item => {
-        const toggleLink = item.querySelector('.nav__link');
-        toggleLink?.addEventListener('click', (e) => {
-          if (window.innerWidth <= 768) {
-            const isActive = item.classList.contains('active');
-          if (!isActive) {
-  e.preventDefault(); // Primer clic: abrir submenú
-  navDropdowns.forEach(i => i.classList.remove('active'));
-  item.classList.add('active');
-} else {
-  // Segundo clic: dejar que el enlace navegue normalmente
-  item.classList.remove('active'); // Opcional: cerrar después de navegar
-}
+      // 👉 Cerrar desde botón o fondo
+      navClose?.addEventListener('click', closeMenu);
+      navOverlay?.addEventListener('click', closeMenu);
+// 👉 Submenús responsive
+navDropdowns.forEach(item => {
+  const toggleLink = item.querySelector('.nav__link');
+  toggleLink?.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      const isActive = item.classList.contains('active');
 
-          }
-        });
-      });
+      if (!isActive) {
+        e.preventDefault(); // Evita navegación en el primer clic
+        // Cierra otros submenús
+        navDropdowns.forEach(i => i.classList.remove('active'));
+        item.classList.add('active'); // Abre este submenú
+      } else {
+        // Segundo clic: permite navegación
+        item.classList.remove('active'); // opcional: cierra después
+      }
+    }
+  });
+});
+
     }, 100); // Verifica cada 100ms
 
 
