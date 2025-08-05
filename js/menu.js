@@ -35,25 +35,33 @@
       // 👉 Cerrar desde botón o fondo
       navClose?.addEventListener('click', closeMenu);
       navOverlay?.addEventListener('click', closeMenu);
-// 👉 Submenús responsive
+// 👉 Submenús responsive con dos clics
 navDropdowns.forEach(item => {
-  const toggleLink = item.querySelector('.nav__link');
+  const toggleLink = item.querySelector('.nav__links');
+  let clickedOnce = false;
+
   toggleLink?.addEventListener('click', (e) => {
     if (window.innerWidth <= 768) {
-      const isActive = item.classList.contains('active');
-
-      if (!isActive) {
-        e.preventDefault(); // Evita navegación en el primer clic
-        // Cierra otros submenús
-        navDropdowns.forEach(i => i.classList.remove('active'));
-        item.classList.add('active'); // Abre este submenú
+      if (!item.classList.contains('active')) {
+        e.preventDefault(); // Bloquea navegación
+        navDropdowns.forEach(i => {
+          i.classList.remove('active');
+          i.querySelector('.nav__links')?.removeAttribute('data-clicked');
+        });
+        item.classList.add('active');
+        toggleLink.setAttribute('data-clicked', 'true'); // Marca como ya clicado
+      } else if (!toggleLink.hasAttribute('data-clicked')) {
+        e.preventDefault(); // Si por alguna razón no se marcó, aún bloquea
+        toggleLink.setAttribute('data-clicked', 'true');
       } else {
-        // Segundo clic: permite navegación
-        item.classList.remove('active'); // opcional: cierra después
+        // Segundo clic: permitir navegación
+        item.classList.remove('active');
+        toggleLink.removeAttribute('data-clicked');
       }
     }
   });
 });
+
 
     }, 100); // Verifica cada 100ms
 
