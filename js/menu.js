@@ -28,14 +28,7 @@
         }, 300);
       }
 
-      // 👉 Cerrar desde botón o fondo
-      navClose?.addEventListener('click', closeMenu);
-      navOverlay?.addEventListener('click', closeMenu);
-
-      // 👉 Cerrar desde botón o fondo
-      navClose?.addEventListener('click', closeMenu);
-      navOverlay?.addEventListener('click', closeMenu);
-// 👉 Submenús responsive con dos clics
+     // 👉 Submenús responsive con dos clics
 navDropdowns.forEach(item => {
   const toggleLink = item.querySelector('.nav__links');
   let clickedOnce = false;
@@ -61,7 +54,6 @@ navDropdowns.forEach(item => {
     }
   });
 });
-
 
     }, 100); // Verifica cada 100ms
 

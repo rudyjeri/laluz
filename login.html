@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login con Google - La Luz de la Verdad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #1676d7, #dee2e6);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #212529;
+    }
+    .google-btn {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      color: #444;
+      font-size: 16px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    .google-btn:hover {
+      background-color: #f1f1f1;
+    }
+    .google-btn img {
+      height: 20px;
+    }
+    #usuario {
+      margin-top: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Iniciar sesión con Google</h2>
+    <button class="google-btn" onclick="loginConGoogle()">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
+      Google
+    </button>
+    <div id="usuario" style="margin-top: 20px;"></div>
+  </div>
+
+  <!-- SDK de Firebase "compat" que sí funciona sin modules -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+  <script>
+    // Tu configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyBH_pACwjd_2I71JfcvNGhK4mXziFqYpvk",
+      authDomain: "laluzdelaverdad-73557.firebaseapp.com",
+      projectId: "laluzdelaverdad-73557",
+      storageBucket: "laluzdelaverdad-73557.appspot.com",
+      messagingSenderId: "1014427093678",
+      appId: "1:1014427093678:web:073147b56ae0defeeefb3f"
+    };
+
+    // Inicializar Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+   function loginConGoogle() {
+  auth.signInWithPopup(provider)
+    .then(result => {
+      const user = result.user;
+      document.getElementById('usuario').innerHTML = `
+        <p><strong>${user.displayName}</strong><br>${user.email}</p>
+      `;
+      // Guardar en Firestore
+      return db.collection("usuarios").doc(user.uid).set({
+        nombre: user.displayName,
+        email: user.email,
+        foto: user.photoURL
+      });
+    })
+    .then(() => {
+      // ✅ Redirigir después de guardar correctamente
+      window.location.href = 'index.html';
+    })
+    .catch(error => {
+      console.error("❌ Error al iniciar sesión:", error);
+    });
+}
+
+  </script>

@@ -1,3 +1,4 @@
+<!-- NAVBAR CON LOGIN DE GOOGLE -->
 <nav class="nav container">
   <!-- LOGO -->
   <div class="nav__logo">
@@ -46,15 +47,69 @@
     </li>
 
     <!-- Recursos -->
-    <li class="nav__items">
-      <a href="recursos.html" class="nav__links">Recursos</a>
-    </li>
-    <!-- Cierre del menú -->
-  <img src="./images/close.svg" class="nav__close" id="navClose" alt="Cerrar menú">
-</ul>
+    <li class="nav__items"><a href="recursos.html" class="nav__links">Recursos</a></li>
 
-  <!-- MENÚ HAMBURGUESA (fuera del ul) -->
+    <!-- BOTÓN DE LOGIN CON GOOGLE -->
+    <li class="nav__items">
+<a href="login.html" class="nav__login-icon" title="Iniciar sesión">👤</a>
+    </li>
+
+    <!-- Cerrar menú hamburguesa -->
+    <img src="./images/close.svg" class="nav__close" id="navClose" alt="Cerrar menú">
+  </ul>
+
+  <!-- MENÚ HAMBURGUESA -->
   <div class="nav__menu" id="navToggle">
     <span style="font-size: 30px; color: #0d1d3e;">☰</span>
   </div>
 </nav>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js"></script>
+
+<script>
+  // Configuración de Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyBH_pACwjd_2I71JfcvNGhK4mXziFqYpvk",
+    authDomain: "laluzdelaverdad-73557.firebaseapp.com",
+    projectId: "laluzdelaverdad-73557",
+    storageBucket: "laluzdelaverdad-73557.appspot.com",
+    messagingSenderId: "1014427093678",
+    appId: "1:1014427093678:web:073147b56ae0defeeefb3f"
+  };
+
+  // Inicializa Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  const loginBtn = document.getElementById("loginBtn");
+
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      auth.signInWithPopup(provider)
+        .then(result => {
+          const user = result.user;
+          loginBtn.innerText = user.displayName.split(' ')[0];
+
+          db.collection("usuarios").doc(user.uid).set({
+            nombre: user.displayName,
+            email: user.email,
+            foto: user.photoURL
+          });
+        })
+        .catch(error => {
+          console.error("Error al iniciar sesión:", error);
+        });
+    });
+
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        loginBtn.innerText = user.displayName.split(' ')[0];
+      }
+    });
+  }
+</script>
