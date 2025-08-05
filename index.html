@@ -243,7 +243,41 @@
       }
     });
   </script>
+ <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBH_pACwjd_2I71JfcvNGhK4mXziFqYpvk",
+      authDomain: "laluzdelaverdad-73557.firebaseapp.com",
+      projectId: "laluzdelaverdad-73557",
+      storageBucket: "laluzdelaverdad-73557.appspot.com",
+      messagingSenderId: "1014427093678",
+      appId: "1:1014427093678:web:073147b56ae0defeeefb3f"
+    };
 
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        document.getElementById('perfil').innerHTML = `
+          <img src="${user.photoURL}" alt="Foto de perfil">
+          <h2>${user.displayName}</h2>
+          <p>${user.email}</p>
+          <button onclick="logout()">Cerrar sesión</button>
+        `;
+      } else {
+        window.location.href = "login.html"; // si no está logueado, lo mandamos al login
+      }
+    });
+
+    function logout() {
+      auth.signOut().then(() => {
+        window.location.href = "login.html";
+      });
+    }
+  </script>
  <script>
      document.addEventListener("DOMContentLoaded", () => {
   const heroTitle = document.querySelector(".hero__container_inicio .hero__title");
